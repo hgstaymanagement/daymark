@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Daymark</title>
+  <meta name="description" content="A lightweight personal organizer for tasks, bills and a simple balance. Your data stays on this device.">
+  <meta name="theme-color" content="#e8edfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0e1c" media="(prefers-color-scheme: dark)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Daymark">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="edge" aria-hidden="true"></div>
+
+  <div class="rail">
+    <div class="brand"><img src="icons/icon.svg" width="30" height="30" alt=""><span>Daymark</span></div>
+    <button class="add" type="button" data-action="add" aria-label="Add new"><span data-icon="plus"></span><span class="label">New</span></button>
+    <nav class="tabs" aria-label="Main">
+      <span class="thumb" aria-hidden="true"></span>
+      <a href="#today"><span data-icon="today"></span><span class="t">Today</span></a>
+      <a href="#tasks"><span data-icon="tasks"></span><span class="t">Tasks<i class="dot" hidden></i></span></a>
+      <a href="#bills"><span data-icon="bills"></span><span class="t">Bills<i class="dot" hidden></i></span></a>
+      <a href="#money"><span data-icon="money"></span><span class="t">Money</span></a>
+    </nav>
+    <button class="rail-backup" type="button" data-action="backup" aria-label="Backup and restore"><span data-icon="backup"></span>Backup</button>
+  </div>
+
+  <div class="shell">
+    <main id="main" tabindex="-1" aria-live="off"></main>
+  </div>
+
+  <dialog id="sheet" aria-labelledby="sheet-title">
+    <div class="scrim"></div>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <div class="grab" aria-hidden="true"></div>
+        <div class="sheet-title">
+          <h2 id="sheet-title"></h2>
+          <button class="icon-btn" type="button" data-action="close" aria-label="Close"><span data-icon="close"></span></button>
+        </div>
+      </div>
+      <div class="sheet-body"></div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p class="nojs">Daymark needs JavaScript to run. Nothing is sent anywhere; your data stays on this device.</p></noscript>
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
